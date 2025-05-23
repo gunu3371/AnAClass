@@ -2,7 +2,7 @@ from fastapi import APIRouter, Header, HTTPException
 from schema.student import Student
 from service.student import register as reg
 from utils.digits_sum import find_digits_sum
-from utils.exceptions import ValidationException
+from utils.exceptions import *
 router = APIRouter()
 
 @router.post("/register")

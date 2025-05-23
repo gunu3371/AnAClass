@@ -18,7 +18,19 @@ async def validation_exception_handler(request: Request, exc: ValidationExceptio
         content={
             "error": {
                 "message": "!!FBI WARNING!!",
-                "detail": str(exc.message)
+                "detail": str(exc.detail)
+            }
+        }
+    )
+
+@app.exception_handler(PasswordException)
+async def password_verification_failure(request: Request, exc: PasswordException):
+    return JSONResponse(
+        status_code=451,
+        content={
+            "error": {
+                "message": "PASSWORD를 틀렸으니 PUNISHMENT!!!!를 받아야겠지????!?!?!?!?!?",
+                "detail": str(exc.detail)
             }
         }
     )
